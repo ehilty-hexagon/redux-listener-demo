@@ -1,0 +1,48 @@
+.root {
+    color: var(--color-text);
+}
+
+.root>:not(:first-child) {
+    margin-top: 1.0rem;
+}
+
+.input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 24px;
+    padding: 0.5rem;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button {
+    font-family: inherit;
+    font-size: 18px;
+    padding: 0.25rem;
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+.values {
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+}
+
+.value {
+    font-size: 18px;
+    color: var(--color-text-subtle);
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.value:not(:first-child) {
+    border-top: 1px solid var(--color-text-subtle);
+}
