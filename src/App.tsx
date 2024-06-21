@@ -1,4 +1,5 @@
 import "./App.css"
+import { AlertOverlay } from "./features/alertOverlay/AlertOverlay"
 import { WordList } from "./features/wordList/WordList"
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
       <header className="appHeader">
         <WordList />
       </header>
+      <AlertOverlay />
     </div>
   )
 }

@@ -6,7 +6,7 @@ import styles from "./WordList.module.css";
 export const WordList = () => {
     
     const dispatch = useAppDispatch();
-    const word = useAppSelector(selectWords);
+    const words = useAppSelector(selectWords);
     const [wordToAddOrRemove, setWordToAddOrRemove] = useState("");
 
     return (
@@ -40,8 +40,8 @@ export const WordList = () => {
                 </button>
             </div>
             <ul className={styles.values}>
-                {word.map(value => (
-                    <li className={styles.value}>
+                {words.map((value, index) => (
+                    <li className={styles.value} key={index}>
                         {value}
                     </li>
                 ))}
