@@ -24,19 +24,19 @@ export const WordList = () => {
                     className={styles.button}
                     onClick={() => dispatch(addWord(wordToAddOrRemove))}
                 >
-                    Add Value
+                    Add Word
                 </button>
                 <button
                     className={styles.button}
                     onClick={() => dispatch(removeWord(wordToAddOrRemove))}
                 >
-                    Remove Value
+                    Remove Word
                 </button>
                 <button
                     className={styles.button}
                     onClick={() => dispatch(clearWords())}
                 >
-                    Clear Values
+                    Clear Words
                 </button>
             </div>
             <ul className={styles.values}>
