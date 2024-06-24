@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addWord, clearWords, removeWord, selectWords } from "./wordListSlice";
+import { addWord, clearWords, removeWord, selectWords, selectWordsSorted } from "./wordListSlice";
 import styles from "./WordList.module.css";
+import { Display } from "./Display";
 
 export const WordList = () => {
     
     const dispatch = useAppDispatch();
     const words = useAppSelector(selectWords);
+    const sortedWords = useAppSelector(selectWordsSorted);
     const [wordToAddOrRemove, setWordToAddOrRemove] = useState("");
 
     return (
@@ -39,13 +41,10 @@ export const WordList = () => {
                     Clear Words
                 </button>
             </div>
-            <ul className={styles.values}>
-                {words.map((value, index) => (
-                    <li className={styles.value} key={index}>
-                        {value}
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.displays}>
+                <Display values={words} heading="Unsorted :("/>
+                <Display values={sortedWords} heading="Sorted :)"/>
+            </div>
         </div>
     );
 }

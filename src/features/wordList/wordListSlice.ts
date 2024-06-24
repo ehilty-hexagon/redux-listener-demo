@@ -35,9 +35,10 @@ export const wordListSlice = createSlice({
     }),
     selectors: {
         selectWords: wordList => wordList.values,
+        selectWordsSorted: wordList => wordList.values.toSorted(),
     },
 });
 
 export const { addWord, removeWord, clearWords } = wordListSlice.actions;
 
-export const { selectWords } = wordListSlice.selectors;
+export const { selectWords, selectWordsSorted } = wordListSlice.selectors;
