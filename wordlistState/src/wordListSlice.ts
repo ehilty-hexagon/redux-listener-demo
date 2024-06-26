@@ -1,12 +1,12 @@
-import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice, createSelector } from "@reduxjs/toolkit";
 
 export type Word = string;
 
-export interface WordListSliceState {
+export interface WordListState {
     values: Word[]
 }
 
-const initialState: WordListSliceState = {
+const initialState: WordListState = {
     values: []
 };
 
@@ -35,8 +35,9 @@ export const wordListSlice = createSlice({
     }),
     selectors: {
         selectWords: wordList => wordList.values,
-        selectWordsSorted: wordList => wordList.values.toSorted(),
+        selectWordsSorted: createSelector((wordList) => wordList.values, (words) => words.toSorted()),
     },
+    
 });
 
 export const { addWord, removeWord, clearWords } = wordListSlice.actions;

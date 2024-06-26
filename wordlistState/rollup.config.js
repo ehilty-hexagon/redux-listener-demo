@@ -12,7 +12,7 @@ export default [
     input: "src/index.ts",
     output: {
       file: packageJson.main,
-      format: "cjs",
+      format: "es",
       sourcemap: true,
     },
     plugins: [

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import styles from "./AlertOverlay.module.css";
-import { addWord, clearWords, removeWord } from "../wordList/wordListSlice";
+import { addWord, clearWords, removeWord } from "wordlist-state";
 import { addListener } from "@reduxjs/toolkit";
+import styles from "./AlertOverlay.module.css";
 
 interface Alert {
     id: string;

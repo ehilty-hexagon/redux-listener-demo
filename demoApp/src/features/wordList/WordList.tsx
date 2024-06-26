@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addWord, clearWords, removeWord, selectWords, selectWordsSorted } from "./wordListSlice";
-import styles from "./WordList.module.css";
 import { Display } from "./Display";
+import styles from "./WordList.module.css";
+import {
+    useSliceDispatch as useWordListDispatch,
+    useSliceSelector as useWordListSelector,
+    selectWords,
+    selectWordsSorted,
+    addWord,
+    removeWord,
+    clearWords,
+ } from "wordlist-state";
 
 export const WordList = () => {
     
-    const dispatch = useAppDispatch();
-    const words = useAppSelector(selectWords);
-    const sortedWords = useAppSelector(selectWordsSorted);
+    const dispatch = useWordListDispatch();
+    const words = useWordListSelector(selectWords);
+    const sortedWords = useWordListSelector(selectWordsSorted);
     const [wordToAddOrRemove, setWordToAddOrRemove] = useState("");
 
     return (

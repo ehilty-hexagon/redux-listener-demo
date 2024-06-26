@@ -1,5 +1,5 @@
 import { combineSlices, configureStore, createListenerMiddleware } from "@reduxjs/toolkit"
-import { wordListSlice } from "../features/wordList/wordListSlice"
+import { wordListSlice } from "wordlist-state";
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.

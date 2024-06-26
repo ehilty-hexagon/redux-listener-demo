@@ -1,5 +1,7 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
+  roots: ['<rootDir>'],
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  setupFilesAfterEnv: ['jest-extended/all'],
 };
