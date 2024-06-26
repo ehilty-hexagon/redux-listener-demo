@@ -1,6 +1,6 @@
-# ts-library-template
+# wordlist-state
 
-Template for a Typescript library which [rollup](https://rollupjs.org/) to bundle code and [jest](https://jestjs.io/) to test.
+Exports WordList Redux slice
 
 ## Scripts
 
