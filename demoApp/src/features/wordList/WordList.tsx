@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Display } from "./Display";
 import styles from "./WordList.module.css";
-import {
-    useSliceDispatch as useWordListDispatch,
-    useSliceSelector as useWordListSelector,
-    selectWords,
-    selectWordsSorted,
-    addWord,
-    removeWord,
-    clearWords,
- } from "wordlist-state";
 
-export const WordList = () => {
+export interface WordListProps {
+    words: string[];
+    sortedWords: string[];
+    onAddWord: (word: string) => void;
+    onRemoveWord: (word: string) => void;
+    onClearWords: () => void;
+}
+
+/**
+ * Attemps to be a "stateless component", or more accurately, a component with minimal state.
+ * As a stateless component, we prefer communicating solely with props/callbacks
+ * This makes the component "agnostic" to how state is actually stored/managed.
+ * Component could just as easily be connected to local state as it could be connected to a store.
+ */
+export const WordList = memo(({ words, sortedWords, onAddWord, onRemoveWord, onClearWords }: WordListProps) => {
     
-    const dispatch = useWordListDispatch();
-    const words = useWordListSelector(selectWords);
-    const sortedWords = useWordListSelector(selectWordsSorted);
     const [wordToAddOrRemove, setWordToAddOrRemove] = useState("");
 
     return (
@@ -31,19 +33,19 @@ export const WordList = () => {
             <div className={styles.buttons}>
                 <button
                     className={styles.button}
-                    onClick={() => dispatch(addWord(wordToAddOrRemove))}
+                    onClick={() => onAddWord(wordToAddOrRemove)}
                 >
                     Add Word
                 </button>
                 <button
                     className={styles.button}
-                    onClick={() => dispatch(removeWord(wordToAddOrRemove))}
+                    onClick={() => onRemoveWord(wordToAddOrRemove)}
                 >
                     Remove Word
                 </button>
                 <button
                     className={styles.button}
-                    onClick={() => dispatch(clearWords())}
+                    onClick={() => onClearWords()}
                 >
                     Clear Words
                 </button>
@@ -54,4 +56,4 @@ export const WordList = () => {
             </div>
         </div>
     );
-}
+});

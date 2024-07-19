@@ -1,12 +1,12 @@
 import "./App.css"
 import { AlertOverlay } from "./features/alertOverlay/AlertOverlay"
-import { WordList } from "./features/wordList/WordList"
+import { ConnectedWordList } from "./features/wordList/ConnectedWordList"
 
 const App = () => {
   return (
     <div className="app">
       <header className="appHeader">
-        <WordList />
+        <ConnectedWordList />
       </header>
       <AlertOverlay />
     </div>
