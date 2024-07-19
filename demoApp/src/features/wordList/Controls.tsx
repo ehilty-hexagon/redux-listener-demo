@@ -8,6 +8,11 @@ export interface ControlsProps {
     onClearWords: () => void;
 }
 
+/**
+ * Attempts to use as minimal state as possible - "stateless component"
+ * This makes component agnostic to how state is actually managed.
+ * Can just as easily connected to local state of parent as Redux store
+ */
 export const Controls = memo(({ onAddWord, onRemoveWord, onClearWords }: ControlsProps) => {
 
     const [wordToAddOrRemove, setWordToAddOrRemove] = useState("");
@@ -47,10 +52,11 @@ export const Controls = memo(({ onAddWord, onRemoveWord, onClearWords }: Control
     
 });
 
+/**
+ * A wrapper around Controls which is connected to the store
+ */
 export const ConnectedControls = () => {
-
     const dispatch = useWordListDispatch();
-
     return <Controls
         onAddWord={(word) => dispatch(addWord(word))}
         onRemoveWord={(word) => dispatch(removeWord(word))}
